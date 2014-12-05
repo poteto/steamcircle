@@ -1,9 +1,4 @@
 deployment:
-  staging:
-    branch: develop
-    heroku:
-      appname: gitspace-staging
-
   production:
     branch: master
     heroku:
