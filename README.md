@@ -1,5 +1,7 @@
 # Gitspace
 
+[ ![Codeship Status for poteto/gitspace](https://codeship.com/projects/41863570-5e87-0132-5471-5eb10da773d3/status)](https://codeship.com/projects/51351)
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
