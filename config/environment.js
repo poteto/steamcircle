@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'gitspace',
+    firebase_instance: process.env.FIREBASE_URL,
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
