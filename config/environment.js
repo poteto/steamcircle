@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'gitspace',
+    podModulePrefix: 'gitspace/pods',
     firebase_instance: process.env.FIREBASE_URL,
     environment: environment,
     baseURL: '/',
