@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
   this.resource('user', { path: 'users/:user_id' }, function() { });
 });
 

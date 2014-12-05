@@ -15,6 +15,25 @@ module.exports = function(environment) {
       }
     },
 
+    torii: {
+      providers: {
+        'github-oauth2': {
+          apiKey: process.env.GITHUB_ID,
+          redirectUri: 'http://localhost:4200/login'
+        }
+      }
+    },
+
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' www.google-analytics.com",
+      'connect-src': "'self' www.google-analytics.com wss://*.firebaseio.com",
+      'font-src': "'self' http://fonts.gstatic.com http://maxcdn.bootstrapcdn.com",
+      'img-src': "'self' www.google-analytics.com",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com http://maxcdn.bootstrapcdn.com",
+      'media-src': "'self'"
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
