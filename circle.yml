@@ -1,5 +1,19 @@
+machine:
+  node:
+    version: 0.11.13
+
+dependencies:
+  override:
+    - npm install
+    - npm install -g bower
+    - bower install
+
 deployment:
   production:
     branch: master
     heroku:
       appname: gitspace
+
+test:
+  override:
+    - npm test
