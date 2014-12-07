@@ -17,6 +17,10 @@
     "ember-simple-auth": "0.7.2"
   },
   "resolutions": {
-    "ember": "1.8.1"
+    "ember": "1.8.1",
+    "jquery": "^1.11.1"
+  },
+  "devDependencies": {
+    "foundation": "~5.4.7"
   }
 }

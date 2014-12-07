@@ -2,11 +2,11 @@ deployment:
   staging:
     branch: develop
     owner: poteto
-    heroku:
-      appname: steamcircle-staging
+    commands:
+      - ./node_modules/.bin/ember divshot push staging --token $DIVSHOT_TOKEN
 
   production:
     branch: master
     owner: poteto
-    heroku:
-      appname: steamcircle
+    production:
+      - ./node_modules/.bin/ember divshot push staging --token $DIVSHOT_TOKEN
