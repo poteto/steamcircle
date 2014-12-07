@@ -1,9 +1,4 @@
 deployment:
-  feature:
-    branch: /feature/.*/
-    heroku:
-      appname: steamcircle-dev
-
   staging:
     branch: develop
     owner: poteto
