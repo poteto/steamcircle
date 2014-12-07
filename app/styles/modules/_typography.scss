@@ -1,0 +1,21 @@
+%font-familyHeadings {
+  @extend %font-weightBold;
+  font-family: $font-familyHeadings + ', ' + $font-familyFallbacks;
+  text-transform: uppercase;
+}
+
+%font-familyParagraphs {
+  font-family: $font-familyParagraphs + ', ' + $font-familyFallbacks;
+}
+
+%font-weightLight {
+  font-weight: $font-weightLight;
+}
+
+%font-weightRegular {
+  font-weight: $font-weightRegular;
+}
+
+%font-weightBold {
+  font-weight: $font-weightBold;
+}

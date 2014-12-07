@@ -1,0 +1,31 @@
+html,
+html a {
+  -webkit-font-smoothing: antialiased !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-rendering: optimizeLegibility;
+}
+
+img,
+a,
+div {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: optimizeQuality;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %font-familyHeadings;
+}
+
+body {
+  @extend %font-familyParagraphs;
+}
+
+body,
+html {
+  margin: 20px;
+}

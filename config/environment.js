@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'steamcircle',
     podModulePrefix: 'steamcircle/pods',
     firebase_instance: process.env.FIREBASE_URL,
+    typekitId: process.env.TYPEKIT_ID,
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -27,11 +28,11 @@ module.exports = function(environment) {
 
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' www.google-analytics.com",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' use.typekit.net",
       'connect-src': "'self' www.google-analytics.com wss://*.firebaseio.com",
-      'font-src': "'self' http://fonts.gstatic.com http://maxcdn.bootstrapcdn.com",
-      'img-src': "'self' www.google-analytics.com",
-      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com http://maxcdn.bootstrapcdn.com",
+      'font-src': "'self' data:",
+      'img-src': "'self' p.typekit.net google-analytics.com",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net fonts.googleapis.com",
       'media-src': "'self'"
     },
 
