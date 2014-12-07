@@ -2,9 +2,9 @@ deployment:
   staging:
     branch: develop
     commands:
-      - deploy_staging.sh
+      - ember divshot push staging --environment=production
 
   production:
     branch: master
     commands:
-      - deploy_production.sh
+      - ember divshot push production --environment=production
