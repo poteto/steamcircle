@@ -1,5 +1,10 @@
 deployment:
+  staging:
+    branch: develop
+    commands:
+      - ./deploy_staging.sh
+
   production:
     branch: master
-    heroku:
-      appname: gitspace
+    commands:
+      - ./deploy_production.sh

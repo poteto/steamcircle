@@ -2,7 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'gitspace',
+    modulePrefix: 'steamcircle',
+    podModulePrefix: 'steamcircle/pods',
     firebase_instance: process.env.FIREBASE_URL,
     environment: environment,
     baseURL: '/',
@@ -12,6 +13,26 @@ module.exports = function(environment) {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       }
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'github-oauth2': {
+          apiKey: process.env.GITHUB_ID,
+          redirectUri: 'http://localhost:4200/login'
+        }
+      }
+    },
+
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' www.google-analytics.com",
+      'connect-src': "'self' www.google-analytics.com wss://*.firebaseio.com",
+      'font-src': "'self' http://fonts.gstatic.com http://maxcdn.bootstrapcdn.com",
+      'img-src': "'self' www.google-analytics.com",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com http://maxcdn.bootstrapcdn.com",
+      'media-src': "'self'"
     },
 
     APP: {
