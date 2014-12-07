@@ -8,5 +8,5 @@ deployment:
   production:
     branch: master
     owner: poteto
-    production:
+    commands:
       - ./node_modules/.bin/ember divshot push staging --token $DIVSHOT_TOKEN
