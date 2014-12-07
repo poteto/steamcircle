@@ -10,15 +10,17 @@ module.exports = function(app) {
 
   steamRouter.get('/resolveVanityUrl/:url', function(req, res) {
     var url = _buildUrl(interfaceName, 'ResolveVanityURL', 1, { vanityurl: req.params.url });
-    http.get(url, function(res) {
-      console.log('URL is:' + url);
-      console.log("Got response: " + res.statusCode);
+    var data = '';
+    http.get(url, function(response) {
+      response.on('data', function(chunk) {
+        data += chunk;
+      });
 
-      res.on("data", function(chunk) {
-        console.log("BODY: " + chunk);
+      response.on('end', function() {
+        res.status(response.statusCode).json(data);
       });
     }).on('error', function(error) {
-      console.log("Got error: " + error.message);
+      console.error(error.message);
     });
   });
 
