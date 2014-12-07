@@ -2,12 +2,14 @@ deployment:
   feature:
     branch: /feature/.*/
     commands:
+      - npm build
       - divshot push development --token $DIVSHOT_TOKEN
 
   staging:
     branch: develop
     owner: poteto
     commands:
+      - npm build
       - divshot push staging --token $DIVSHOT_TOKEN
 
   production:
