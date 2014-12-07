@@ -2,15 +2,13 @@
 
 [![Circle CI](https://circleci.com/gh/poteto/steamcircle.svg?style=svg)](https://circleci.com/gh/poteto/steamcircle)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM) and [Bower](http://bower.io/)
+* [Ember-cli](http://www.ember-cli.com)
 
 ## Installation
 
@@ -26,7 +24,7 @@ You will need the following things properly installed on your computer.
 
 ### Code Generators
 
-Make use of the many generators for code, try `ember help generate` for more details
+When using Ember generators, suffix with `--pod`.
 
 ### Running Tests
 
@@ -40,7 +38,17 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+The app is continuously deployed on Heroku (with the [Ember Buildpack](https://github.com/tonycoco/heroku-buildpack-ember-cli)) via CircleCI.
+
+### Environment Variables
+
+The app uses `ember-cli-dotenv` to manage environment variables. 
+
+- `TYPEKIT_ID` for custom webfonts powered by [Typekit](https://typekit.com/)
+- `FIREBASE_URL` for your [Firebase](https://www.firebase.com/) db
+– `STEAM_API_KEY` for accessing the Steam API. Get your own API key [here](http://steamcommunity.com/dev/apikey)
+
+When developing locally, edit your `.env.example` with your keys and save it in the root folder as `.env`. You'll need to provide these for deployment as well.
 
 ## Further Reading / Useful Links
 
@@ -49,4 +57,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
