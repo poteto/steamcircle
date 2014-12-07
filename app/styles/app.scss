@@ -1,6 +1,7 @@
-@import 'bower_components/foundation/scss/normalize';
-@import 'bower_components/foundation/scss/foundation';
-
-html, body {
-  margin: 20px;
-}
+@import 'foundation';
+@import 'variables';
+@import 'modules';
+@import 'utilities';
+@import 'shared';
+@import 'components';
+@import 'partials';
