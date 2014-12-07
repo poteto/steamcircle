@@ -1,9 +1,3 @@
-<h2 id='title'>Steamcircle</h2>
-
-{{#if session.isAuthenticated}}
-  <a {{ action 'invalidateSession' }}>Logout</a>
-{{else}}
-  <a {{ action 'authenticateSession' }}>Login</a>
-{{/if}}
+{{render 'navbar'}}
 
 {{outlet}}
