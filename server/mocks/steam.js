@@ -17,7 +17,7 @@ module.exports = function(app) {
       });
 
       response.on('end', function() {
-        res.status(response.statusCode).json(data);
+        res.status(response.statusCode).json(JSON.parse(data));
       });
     }).on('error', function(error) {
       console.error(error.message);
