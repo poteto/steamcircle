@@ -1,5 +1,5 @@
 {
-  "name": "gitspace",
+  "name": "steamcircle",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/poteto/gitspace"
+    "url": "https://github.com/poteto/steamcircle"
   },
   "engines": {
     "node": ">= 0.10.0"
@@ -25,6 +25,7 @@
     "ember-cli": "0.1.4",
     "ember-cli-content-security-policy": "0.3.0",
     "ember-cli-dependency-checker": "0.0.6",
+    "ember-cli-divshot": "^0.1.6",
     "ember-cli-dotenv": "^0.3.4",
     "ember-cli-esnext": "0.1.1",
     "ember-cli-ic-ajax": "0.1.1",
