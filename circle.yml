@@ -2,11 +2,11 @@ deployment:
   staging:
     branch: develop
     owner: poteto
-    commands:
-      - ember divshot push staging --environment=production
+    heroku:
+      appname: steamcircle-staging
 
   production:
     branch: master
     owner: poteto
-    commands:
-      - ember divshot push production --environment=production
+    heroku:
+      appname: steamcircle
