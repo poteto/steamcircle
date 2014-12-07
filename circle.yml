@@ -1,12 +1,17 @@
 deployment:
+  feature:
+    branch: /feature/.*/
+    commands:
+      - ./node_modules/.bin/divshot push development --token $DIVSHOT_TOKEN
+
   staging:
     branch: develop
     owner: poteto
     commands:
-      - ./node_modules/.bin/ember divshot push staging --token $DIVSHOT_TOKEN
+      - ./node_modules/.bin/divshot push staging --token $DIVSHOT_TOKEN
 
   production:
     branch: master
     owner: poteto
     commands:
-      - ./node_modules/.bin/ember divshot push staging --token $DIVSHOT_TOKEN
+      - ./node_modules/.bin/divshot promote staging production --token $DIVSHOT_TOKEN
