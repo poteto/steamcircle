@@ -20,12 +20,12 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist'), { maxAge: 86400000 }));
 app.use('/api', router);
 
-router.get('/id/:url', function(req, res) {
+router.get('/resolve/:name', function(req, res) {
   var options = {
     interfaceName : interfaces.user.name,
     method        : interfaces.user.methods.vanity.endpoint,
     version       : interfaces.user.methods.vanity.version,
-    params        : { vanityurl: req.params.url }
+    params        : { vanityurl: req.params.name }
   };
 
   makeRequest(options, function(response, data) {
@@ -33,7 +33,7 @@ router.get('/id/:url', function(req, res) {
   });
 });
 
-router.get('/profile/:id', function(req, res) {
+router.get('/users/:id', function(req, res) {
   var options = {
     interfaceName : interfaces.user.name,
     method        : interfaces.user.methods.summary.endpoint,
@@ -46,7 +46,7 @@ router.get('/profile/:id', function(req, res) {
   });
 });
 
-router.get('/profile/:id/friends/:relationship', function(req, res) {
+router.get('/users/:id/friends/:relationship', function(req, res) {
   var options = {
     interfaceName : interfaces.user.name,
     method        : interfaces.user.methods.friends.endpoint,
@@ -59,7 +59,7 @@ router.get('/profile/:id/friends/:relationship', function(req, res) {
   });
 });
 
-router.get('/profile/:id/games/owned', function(req, res) {
+router.get('/users/:id/games/owned', function(req, res) {
   var options = {
     interfaceName : interfaces.player.name,
     method        : interfaces.player.methods.games.endpoint,
@@ -69,6 +69,32 @@ router.get('/profile/:id/games/owned', function(req, res) {
 
   makeRequest(options, function(response, data) {
     res.status(response.statusCode).send(data.response);
+  });
+});
+
+router.get('/users/:id/games/recent', function(req, res) {
+  var options = {
+    interfaceName : interfaces.player.name,
+    method        : interfaces.player.methods.recentlyPlayed.endpoint,
+    version       : interfaces.player.methods.recentlyPlayed.version,
+    params        : { steamid: req.params.id }
+  };
+
+  makeRequest(options, function(response, data) {
+    res.status(response.statusCode).send(data.response);
+  });
+});
+
+router.get('/games/:appid', function(req, res) {
+  var options = {
+    interfaceName : interfaces.stats.name,
+    method        : interfaces.stats.methods.schema.endpoint,
+    version       : interfaces.stats.methods.schema.version,
+    params        : { appid: req.params.appid }
+  };
+
+  makeRequest(options, function(response, data) {
+    res.status(response.statusCode).send(data.game);
   });
 });
 
