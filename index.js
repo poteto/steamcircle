@@ -9,17 +9,13 @@ var router        = express.Router();
 
 var interfaces    = require('./lib/interfaces');
 var makeRequest   = require('./lib/request');
-var staticPath    = '../public';
+var staticPath    = '../dist';
 
 var server = app.listen(process.env.PORT || 5000, function () {
   var host = server.address().address;
   var port = server.address().port;
   winston.info('Listening at http://%s:%s', host, port);
 });
-
-if (app.get('env') === 'development') {
-  staticPath = './dist';
-}
 
 app.use(logger('dev'));
 app.use('/api', router);
