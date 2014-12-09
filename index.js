@@ -17,8 +17,15 @@ var server = app.listen(process.env.PORT || 3000, function () {
 });
 
 app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'dist'), { maxAge: 86400000 }));
 app.use('/api', router);
+
+app.configure('development', function() {
+  app.use(express.static(path.join(__dirname, 'dist'), { maxAge: 86400000 }));
+});
+
+app.configure('production', function() {
+  app.use(express.static(path.join(__dirname, 'public'), { maxAge: 86400000 }));
+});
 
 app.get('*', function(request, response){
   response.sendfile('./dist/index.html');
