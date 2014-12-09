@@ -38,7 +38,7 @@ When using Ember generators, suffix with `--pod`.
 
 ### Deploying
 
-The app is continuously deployed on Heroku (with the [Ember Buildpack](https://github.com/tonycoco/heroku-buildpack-ember-cli)) via CircleCI.
+The app is continuously deployed on Heroku via CircleCI. There is a `Procfile` that runs an Express app (`index.js`).
 
 ### Environment Variables
 
