@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'steamcircle',
     podModulePrefix: 'steamcircle/pods',
+    usePodsByDefault: true,
     firebase_instance: process.env.FIREBASE_URL,
     typekitId: process.env.TYPEKIT_ID,
     environment: environment,
@@ -29,7 +30,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-eval' 'unsafe-inline' use.typekit.net",
-      'connect-src': "'self' www.google-analytics.com wss://*.firebaseio.com",
+      'connect-src': "'self' www.google-analytics.com wss://*.firebaseio.com api.steampowered.com",
       'font-src': "'self' data:",
       'img-src': "'self' p.typekit.net google-analytics.com",
       'style-src': "'self' 'unsafe-inline' use.typekit.net fonts.googleapis.com",
