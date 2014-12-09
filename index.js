@@ -20,6 +20,10 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist'), { maxAge: 86400000 }));
 app.use('/api', router);
 
+app.get('*', function(request, response){
+  response.sendfile('./dist/index.html');
+});
+
 router.get('/resolve/:name', function(req, res) {
   var options = {
     interfaceName : interfaces.user.name,
@@ -42,7 +46,10 @@ router.get('/users/:id', function(req, res) {
   };
 
   makeRequest(options, function(response, data) {
-    res.status(response.statusCode).send(data.response);
+    var user = data.response.players[0];
+    user.id = user.steamid;
+    var parsed = { 'user': user };
+    res.status(response.statusCode).send(parsed);
   });
 });
 
