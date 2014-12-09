@@ -9,6 +9,7 @@ var router        = express.Router();
 
 var interfaces    = require('./lib/interfaces');
 var makeRequest   = require('./lib/request');
+var staticPath;
 
 var server = app.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
@@ -16,16 +17,15 @@ var server = app.listen(process.env.PORT || 3000, function () {
   winston.info('Listening at http://%s:%s', host, port);
 });
 
+if (app.get('env') === 'development') {
+  staticPath = 'dist';
+} else {
+  staticPath = 'public';
+}
+
 app.use(logger('dev'));
 app.use('/api', router);
-
-app.configure('development', function() {
-  app.use(express.static(path.join(__dirname, 'dist'), { maxAge: 86400000 }));
-});
-
-app.configure('production', function() {
-  app.use(express.static(path.join(__dirname, 'public'), { maxAge: 86400000 }));
-});
+app.use(express.static(path.join(__dirname, staticPath), { maxAge: 86400000 }));
 
 app.get('*', function(request, response){
   response.sendfile('./dist/index.html');
