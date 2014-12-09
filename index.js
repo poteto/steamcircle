@@ -17,6 +17,10 @@ var server = app.listen(process.env.PORT || 5000, function () {
   winston.info('Listening at http://%s:%s', host, port);
 });
 
+if (process.env.NODE_ENV === 'production') {
+  staticPath = '../public';
+}
+
 app.use(logger('dev'));
 app.use('/api', router);
 app.use(express.static(path.join(__dirname, staticPath), { maxAge: 86400000 }));
