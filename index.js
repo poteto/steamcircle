@@ -9,7 +9,7 @@ var router        = express.Router();
 
 var interfaces    = require('./lib/interfaces');
 var makeRequest   = require('./lib/request');
-var staticPath;
+var staticPath    = './public';
 
 var server = app.listen(process.env.PORT || 5000, function () {
   var host = server.address().address;
@@ -19,8 +19,6 @@ var server = app.listen(process.env.PORT || 5000, function () {
 
 if (app.get('env') === 'development') {
   staticPath = './dist';
-} else {
-  staticPath = './public';
 }
 
 app.use(logger('dev'));
