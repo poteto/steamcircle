@@ -28,7 +28,7 @@ app.use('/api', router);
 app.use(express.static(path.join(__dirname, staticPath), { maxAge: 86400000 }));
 
 app.get('*', function(request, response){
-  response.sendfile('./dist/index.html');
+  response.sendFile('./' + staticPath + '/index.html');
 });
 
 router.get('/resolve/:name', function(req, res) {
