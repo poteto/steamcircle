@@ -9,7 +9,7 @@ var router        = express.Router();
 
 var interfaces    = require('./lib/interfaces');
 var makeRequest   = require('./lib/request');
-var staticPath    = './public';
+var staticPath    = '../public';
 
 var server = app.listen(process.env.PORT || 5000, function () {
   var host = server.address().address;
