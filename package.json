@@ -9,7 +9,7 @@
     "start": "ember server",
     "build": "ember build",
     "test": "ember test",
-    "postinstall": "npm install ember-cli && bower install && node_modules/ember-cli/bin/ember build --environment=production"
+    "postinstall": "npm install ember-cli bower && bower install && node_modules/ember-cli/bin/ember build --environment=production"
   },
   "repository": {
     "type": "git",
