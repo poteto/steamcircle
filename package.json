@@ -9,7 +9,7 @@
     "start": "ember server",
     "build": "ember build",
     "test": "ember test",
-    "postinstall": "bower install && ember build --environment=production"
+    "preuninstall": "bower install && ember build --environment=production"
   },
   "repository": {
     "type": "git",
