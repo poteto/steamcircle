@@ -9,7 +9,7 @@
     "start": "ember server",
     "build": "ember build",
     "test": "ember test",
-    "preuninstall": "bower install && ember build --environment=production"
+    "uninstall": "npm install ember-cli && node_modules/ember-cli/bin/ember build --environment=production"
   },
   "repository": {
     "type": "git",
