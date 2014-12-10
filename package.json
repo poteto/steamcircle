@@ -9,7 +9,7 @@
     "start": "ember server",
     "build": "ember build",
     "test": "ember test",
-    "postinstall": "node_modules/.bin/ember build --environment=production"
+    "postinstall": "./node_modules/.bin/ember build --environment=production"
   },
   "repository": {
     "type": "git",
