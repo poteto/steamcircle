@@ -2,6 +2,7 @@
   "name": "steamcircle",
   "scripts": {
     "start": "foreman start",
+    "test": "foreman run node spec/runner",
     "postinstall": "./postinstall.sh"
   },
   "repository": {
@@ -21,5 +22,11 @@
     "querystring": "^0.2.0",
     "url": "^0.10.1",
     "winston": "^0.8.3"
+  },
+  "devDependencies": {
+    "glob": "^4.3.1",
+    "mocha": "^2.0.1",
+    "should": "^4.3.1",
+    "supertest": "^0.15.0"
   }
 }

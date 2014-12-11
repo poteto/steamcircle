@@ -25,7 +25,7 @@ app.get('*', function(request, response){
   response.sendFile(path.join(__dirname, staticPath, 'index.html'));
 });
 
-router.get('/resolve/:name', function(req, res) {
+router.get('/users/resolve/:name', function(req, res) {
   var options = {
     interfaceName : interfaces.user.name,
     method        : interfaces.user.methods.vanity.endpoint,
@@ -34,7 +34,11 @@ router.get('/resolve/:name', function(req, res) {
   };
 
   makeRequest(options, function(response, data) {
-    res.status(response.statusCode).send(data.response.steamid);
+    if (data.response.success === 42) {
+      res.status(404).send('Sorry, we cannot find that!');
+    } else {
+      res.status(response.statusCode).json(data.response.steamid);
+    }
   });
 });
 
@@ -50,7 +54,7 @@ router.get('/users/:id', function(req, res) {
     var user = data.response.players[0];
     user.id = user.steamid;
     var parsed = { 'user': user };
-    res.status(response.statusCode).send(parsed);
+    res.status(response.statusCode).json(parsed);
   });
 });
 
@@ -63,7 +67,7 @@ router.get('/users/:id/friends/:relationship', function(req, res) {
   };
 
   makeRequest(options, function(response, data) {
-    res.status(response.statusCode).send(data.friendslist);
+    res.status(response.statusCode).json(data.friendslist);
   });
 });
 
@@ -76,7 +80,7 @@ router.get('/users/:id/games/owned', function(req, res) {
   };
 
   makeRequest(options, function(response, data) {
-    res.status(response.statusCode).send(data.response);
+    res.status(response.statusCode).json(data.response);
   });
 });
 
@@ -89,7 +93,7 @@ router.get('/users/:id/games/recent', function(req, res) {
   };
 
   makeRequest(options, function(response, data) {
-    res.status(response.statusCode).send(data.response);
+    res.status(response.statusCode).json(data.response);
   });
 });
 
@@ -102,7 +106,7 @@ router.get('/games/:appid', function(req, res) {
   };
 
   makeRequest(options, function(response, data) {
-    res.status(response.statusCode).send(data.game);
+    res.status(response.statusCode).json(data.game);
   });
 });
 
