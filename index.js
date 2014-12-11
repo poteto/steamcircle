@@ -35,7 +35,7 @@ router.get('/users/resolve/:name', function(req, res) {
 
   makeRequest(options, function(response, data) {
     if (data.response.success === 42) {
-      res.status(404).send('Sorry, we cannot find that!');
+      res.status(404).send();
     } else {
       res.status(response.statusCode).json(data.response.steamid);
     }
@@ -51,10 +51,14 @@ router.get('/users/:id', function(req, res) {
   };
 
   makeRequest(options, function(response, data) {
-    var user = data.response.players[0];
-    user.id = user.steamid;
-    var parsed = { 'user': user };
-    res.status(response.statusCode).json(parsed);
+    if (data.response.players.length) {
+      var user = data.response.players[0];
+      user.id = user.steamid;
+      var parsed = { 'user': user };
+      res.status(response.statusCode).json(parsed);
+    } else {
+      res.status(404).send();
+    }
   });
 });
 
