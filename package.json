@@ -1,15 +1,8 @@
 {
   "name": "steamcircle",
-  "private": true,
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
   "scripts": {
-    "start": "ember server",
-    "build": "ember build",
-    "test": "ember test",
-    "postinstall": "npm install ember-cli bower && bower install && node_modules/ember-cli/bin/ember build --environment=production"
+    "start": "foreman start",
+    "postinstall": "./postinstall.sh"
   },
   "repository": {
     "type": "git",
@@ -20,30 +13,6 @@
   },
   "author": "sugarpirate",
   "license": "MIT",
-  "devDependencies": {
-    "broccoli-asset-rev": "^1.0.0",
-    "broccoli-ember-hbs-template-compiler": "^1.6.1",
-    "connect-restreamer": "^1.0.1",
-    "ember-cli": "^0.1.4",
-    "ember-cli-content-security-policy": "0.3.0",
-    "ember-cli-dependency-checker": "0.0.6",
-    "ember-cli-dotenv": "^0.3.4",
-    "ember-cli-esnext": "0.1.1",
-    "ember-cli-ic-ajax": "0.1.1",
-    "ember-cli-inject-live-reload": "^1.3.0",
-    "ember-cli-qunit": "0.1.2",
-    "ember-cli-sass": "^3.0.3",
-    "ember-cli-simple-auth": "^0.7.2",
-    "ember-cli-simple-auth-torii": "^0.7.2",
-    "ember-data": "1.0.0-beta.12",
-    "ember-export-application-global": "^1.0.0",
-    "ember-inject-script": "0.0.1",
-    "emberfire": "^1.3.1",
-    "express": "^4.8.5",
-    "glob": "^4.0.5",
-    "http-proxy": "^1.7.1",
-    "torii": "^0.2.2"
-  },
   "dependencies": {
     "express": "^4.10.4",
     "http": "0.0.0",
