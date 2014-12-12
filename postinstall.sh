@@ -23,7 +23,7 @@ status "Installing ember-cli and bower"
 npm install ember-cli bower | indent
 
 status "Installing node dependencies"
-npm install | indent
+npm install --dev | indent
 
 status "Installing bower dependencies"
 node_modules/bower/bin/bower install | indent
