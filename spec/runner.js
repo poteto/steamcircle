@@ -7,7 +7,7 @@ var mocha = new Mocha({
   ui       : 'bdd',
   reporter : 'spec',
   timeout  : 5000,
-  slow     : 500
+  slow     : 1000
 });
 
 var root = 'spec';
